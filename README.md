@@ -3,7 +3,7 @@
 
 Evaluating Natural Language Explanations of Food Recommendation System XFoodRec Across Several LLMs
 
-**Amir Mollazadeh**
+**Proposed by Amir Mollazadeh**
 
 **Goal**
 
