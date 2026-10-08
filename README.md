@@ -1,6 +1,5 @@
 # Explainable Food Recommendation, Explanation Quality Analysis & Enhancement.
 
-
 Evaluating Natural Language Explanations of Food Recommendation System XFoodRec Across Several LLMs
 
 **Proposed by Amir Mollazadeh**
@@ -23,70 +22,70 @@ https://github.com/Amir-Mol/XFoodRec
 
 **1. Data Exploration & Preparation**
 
-- Load and inspect `personas.json`, `recommendations.json`, and `recipes.parquet`
-- Extract all explanations and compute basic statistics:
-	- Length (words/characters)
-	- Distribution of explanation types (ingredient-, nutrition-, taste-focused)
-	- Coverage of user preferences vs. health justification
+- [x] (1.1) Load and inspect `personas.json`, `recommendations.json`, and `recipes.parquet`
+- [ ] (1.2) Extract all explanations and compute basic statistics:
+    - [ ] Length (words/characters)
+    - [ ] Distribution of explanation types (ingredient-, nutrition-, taste-focused)
+    - [ ] Coverage of user preferences vs. health justification
 
 **2. Entity Extraction, Fact Verification & Hallucination Detection**
 
-- Extract three types of claims from each explanation: 
-	1. Ingredient mentions (e.g., "garlic", "salmon"), 
-	2. Nutrient claims, qualitative or numeric (e.g., "high in protein", "15g protein"), 
-	3. Diet/health-label claims (e.g., "gluten-free", "diabetes-friendly", "low sodium")
+- Extract three types of claims from each explanation:
+    1.  Ingredient mentions (e.g., "garlic", "salmon"),
+    2.  Nutrient claims, qualitative or numeric (e.g., "high in protein", "15g protein"),
+    3.  Diet/health-label claims (e.g., "gluten-free", "diabetes-friendly", "low sodium")
 - Compare and verify extracted claims with the actual data:
-	- Ingredients → recipe's ingredient list
-	- Nutrient claims → recipe's nutrition fields
-	- Diet/health-label claims → both the recipe's ingredients and the persona's restrictions/allergies/conditions
+    - Ingredients → recipe's ingredient list
+    - Nutrient claims → recipe's nutrition fields
+    - Diet/health-label claims → both the recipe's ingredients and the persona's restrictions/allergies/conditions
 - Define hallucination types:
-	- Ingredient: mentions an ingredient not in the recipe
-	- Nutrition: claimed value significantly differs from actual data (numeric) or contradicts the documented threshold (qualitative)
-	- Diet/allergen: claims a diet/health label or compatibility with a persona restriction that the recipe's ingredients contradict (or vice versa)
+    - Ingredient: mentions an ingredient not in the recipe
+    - Nutrition: claimed value significantly differs from actual data (numeric) or contradicts the documented threshold (qualitative)
+    - Diet/allergen: claims a diet/health label or compatibility with a persona restriction that the recipe's ingredients contradict (or vice versa)
 - Validate the verifier itself: Manually label a sample of explanations as hallucinated/not.
 - Report:
-	- Hallucination rate (% of explanations with ≥1 false claim), broken down by type
-	- Patterns (do longer explanations or certain persona types hallucinate more?)
+    - Hallucination rate (% of explanations with ≥1 false claim), broken down by type
+    - Patterns (do longer explanations or certain persona types hallucinate more?)
 
 **3. Transparency & Reasoning Analysis**
 
 The XFoodRec prompt requires explanations to explicitly cite the user factors (goal, preference) that drove the recommendation
 
 - Classify each explanation by transparency level:
-	- High: explicitly mentions ≥1 user factor, e.g., "matches your muscle gain goal"
-	- Medium: implies user relevance but not explicit
-	- Low: generic, no user context
+    - High: explicitly mentions ≥1 user factor, e.g., "matches your muscle gain goal"
+    - Medium: implies user relevance but not explicit
+    - Low: generic, no user context
 - Report the distribution of levels and compare across persona types.
-	- note: You can classify with rule/lexicon matching (a list of factor keywords + user-directed cue words such as "your"/"goal"/"needs", excluding words that only appear in the recipe title)
+    - note: You can classify with rule/lexicon matching (a list of factor keywords + user-directed cue words such as "your"/"goal"/"needs", excluding words that only appear in the recipe title)
 
 **4. Bias & Fairness Analysis**
 
 - Investigate whether explanation quality varies by persona characteristics:
-	- Dietary goal
-	- Health status
-	- Dietary restriction
-	- Demographics (age, gender)
+    - Dietary goal
+    - Health status
+    - Dietary restriction
+    - Demographics (age, gender)
 - Metrics:
-	- Average explanation length
-	- Transparency score
-	- Hallucination rate
+    - Average explanation length
+    - Transparency score
+    - Hallucination rate
 - Apply statistical tests (t-tests, ANOVA) on persona-level values with multiple-testing correction, and frame results as exploratory.
-	- note: The explanations are nested in 40 personas, so it is good to aggregate metrics per persona before testing.
+    - note: The explanations are nested in 40 personas, so it is good to aggregate metrics per persona before testing.
 
 **5. Multi-Model Explanation Generation**
 
 - Use at least 2 different LLMs (you can use Lehmus AI platform or other services available for University of Oulu students) to generate explanations for the exact same persona + recipe + rank triples already in `recommendations.json`
-	- note: choose LLMs that differ meaningfully in size/architecture for a more informative comparison.
+    - note: choose LLMs that differ meaningfully in size/architecture for a more informative comparison.
 - Run each model's explanations through the Task 1-4 pipeline for comparison against the original GPT-4o-mini explanations.
 
 **6. Evaluation & Comparison**
 
 - Compare original (GPT-4o) explanations vs. new models output
 - Metrics:
-	- Factual accuracy (% of verified claims)
-	- Transparency score
-	- Hallucination rate
-	- Average length
+    - Factual accuracy (% of verified claims)
+    - Transparency score
+    - Hallucination rate
+    - Average length
 - Report a model-comparison table and discuss which model(s) produced better explanations and why.
 
 **Deliverables**
