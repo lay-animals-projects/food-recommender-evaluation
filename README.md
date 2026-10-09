@@ -23,10 +23,10 @@ https://github.com/Amir-Mol/XFoodRec
 **1. Data Exploration & Preparation**
 
 - [x] (1.1) Load and inspect `personas.json`, `recommendations.json`, and `recipes.parquet`
-- [ ] (1.2) Extract all explanations and compute basic statistics:
-    - [ ] Length (words/characters)
-    - [ ] Distribution of explanation types (ingredient-, nutrition-, taste-focused)
-    - [ ] Coverage of user preferences vs. health justification
+- [x] (1.2) Extract all explanations and compute basic statistics:
+    - [x] Length (words/characters)
+    - [x] Distribution of explanation types (ingredient-, nutrition-, taste-focused)
+    - [x] Coverage of user preferences vs. health justification
 
 **2. Entity Extraction, Fact Verification & Hallucination Detection**
 
