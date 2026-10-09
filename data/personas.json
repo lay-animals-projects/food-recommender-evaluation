@@ -1,0 +1,1746 @@
+[
+    {
+        "id": "user_01",
+        "description": "A vegan competitive bodybuilder focused on lean bulking without soy overload.",
+        "profile": {
+            "age": 28,
+            "gender": "Male",
+            "height": 182.0,
+            "weight": 84.0,
+            "activityLevel": "very_active",
+            "dietary_goal": "Muscle Gain",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [
+                        "Vegan"
+                    ],
+                    "other": "High-protein, prefers low-soy options"
+                },
+                "foodAllergies": {
+                    "selected": [],
+                    "other": ""
+                },
+                "healthConditions": {
+                    "selected": [],
+                    "other": ""
+                }
+            },
+            "likedIngredients": [
+                "Seitan",
+                "Lentils",
+                "Chickpeas",
+                "Hemp seeds"
+            ],
+            "dislikedIngredients": [
+                "Mushrooms",
+                "Eggplant"
+            ],
+            "favoriteCuisines": [
+                "Middle Eastern",
+                "Indian",
+                "Mediterranean"
+            ]
+        }
+    },
+    {
+        "id": "user_02",
+        "description": "A type 1 diabetic with a severe tree-nut allergy trying to stabilize blood sugar.",
+        "profile": {
+            "age": 34,
+            "gender": "Female",
+            "height": 168.0,
+            "weight": 67.0,
+            "activityLevel": "moderately_active",
+            "dietary_goal": "Medical Management",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [
+                        "Low Carb"
+                    ],
+                    "other": "Counts carbs precisely; prefers low-GI foods"
+                },
+                "foodAllergies": {
+                    "selected": [
+                        "Tree Nuts"
+                    ],
+                    "other": "Avoids cross-contamination"
+                },
+                "healthConditions": {
+                    "selected": [
+                        "Diabetes (Type 1)"
+                    ],
+                    "other": ""
+                }
+            },
+            "likedIngredients": [
+                "Chicken",
+                "Greek yogurt",
+                "Broccoli",
+                "Berries"
+            ],
+            "dislikedIngredients": [
+                "Sweetened cereals",
+                "Fruit juice"
+            ],
+            "favoriteCuisines": [
+                "American",
+                "Mediterranean"
+            ]
+        }
+    },
+    {
+        "id": "user_03",
+        "description": "A low-budget student with lactose intolerance aiming for cheap weight loss meals.",
+        "profile": {
+            "age": 20,
+            "gender": "Non-binary",
+            "height": 172.0,
+            "weight": 92.0,
+            "activityLevel": "lightly_active",
+            "dietary_goal": "Weight Loss",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [
+                        "Lactose-Free"
+                    ],
+                    "other": "Very budget-constrained; batch-cooks"
+                },
+                "foodAllergies": {
+                    "selected": [],
+                    "other": ""
+                },
+                "healthConditions": {
+                    "selected": [],
+                    "other": ""
+                }
+            },
+            "likedIngredients": [
+                "Rice",
+                "Beans",
+                "Frozen vegetables",
+                "Canned tuna"
+            ],
+            "dislikedIngredients": [
+                "Cottage cheese",
+                "Cream sauces"
+            ],
+            "favoriteCuisines": [
+                "Mexican",
+                "Asian"
+            ]
+        }
+    },
+    {
+        "id": "user_04",
+        "description": "A pregnant vegetarian with iron-deficiency anemia trying to meet nutrient needs.",
+        "profile": {
+            "age": 31,
+            "gender": "Female",
+            "height": 160.0,
+            "weight": 64.0,
+            "activityLevel": "lightly_active",
+            "dietary_goal": "Medical Management",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [
+                        "Vegetarian"
+                    ],
+                    "other": "Pregnant; prioritizes iron, folate, choline"
+                },
+                "foodAllergies": {
+                    "selected": [],
+                    "other": ""
+                },
+                "healthConditions": {
+                    "selected": [
+                        "Anemia"
+                    ],
+                    "other": "Iron-deficiency anemia"
+                }
+            },
+            "likedIngredients": [
+                "Eggs",
+                "Lentils",
+                "Spinach",
+                "Fortified cereal"
+            ],
+            "dislikedIngredients": [
+                "Tofu",
+                "Beets"
+            ],
+            "favoriteCuisines": [
+                "Mediterranean",
+                "Indian"
+            ]
+        }
+    },
+    {
+        "id": "user_05",
+        "description": "A marathon runner with celiac disease optimizing energy without gluten.",
+        "profile": {
+            "age": 26,
+            "gender": "Male",
+            "height": 177.0,
+            "weight": 66.0,
+            "activityLevel": "very_active",
+            "dietary_goal": "Energy Boost",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [
+                        "Gluten-Free"
+                    ],
+                    "other": "Endurance fueling; needs portable snacks"
+                },
+                "foodAllergies": {
+                    "selected": [],
+                    "other": ""
+                },
+                "healthConditions": {
+                    "selected": [
+                        "Celiac Disease"
+                    ],
+                    "other": ""
+                }
+            },
+            "likedIngredients": [
+                "Rice",
+                "Potatoes",
+                "Bananas",
+                "Oats (certified GF)"
+            ],
+            "dislikedIngredients": [
+                "Wheat bread",
+                "Barley"
+            ],
+            "favoriteCuisines": [
+                "Japanese",
+                "Mexican"
+            ]
+        }
+    },
+    {
+        "id": "user_06",
+        "description": "A post-bariatric surgery patient needing high protein in small portions.",
+        "profile": {
+            "age": 45,
+            "gender": "Female",
+            "height": 158.0,
+            "weight": 74.0,
+            "activityLevel": "lightly_active",
+            "dietary_goal": "Medical Management",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [
+                        "High Protein"
+                    ],
+                    "other": "Small meals; avoids high sugar/fat dumping triggers"
+                },
+                "foodAllergies": {
+                    "selected": [],
+                    "other": ""
+                },
+                "healthConditions": {
+                    "selected": [
+                        "Post-Surgery"
+                    ],
+                    "other": "Post-bariatric surgery"
+                }
+            },
+            "likedIngredients": [
+                "Cottage cheese (lactose-free)",
+                "Eggs",
+                "Turkey",
+                "Protein shakes"
+            ],
+            "dislikedIngredients": [
+                "Sugary desserts",
+                "Fried foods"
+            ],
+            "favoriteCuisines": [
+                "American",
+                "Mediterranean"
+            ]
+        }
+    },
+    {
+        "id": "user_07",
+        "description": "A pescatarian with shellfish allergy trying to maintain weight and heart health.",
+        "profile": {
+            "age": 52,
+            "gender": "Male",
+            "height": 175.0,
+            "weight": 78.0,
+            "activityLevel": "moderately_active",
+            "dietary_goal": "Maintenance",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [
+                        "Pescatarian"
+                    ],
+                    "other": "Avoids shellfish; prefers fatty fish"
+                },
+                "foodAllergies": {
+                    "selected": [
+                        "Shellfish"
+                    ],
+                    "other": ""
+                },
+                "healthConditions": {
+                    "selected": [
+                        "High Cholesterol"
+                    ],
+                    "other": ""
+                }
+            },
+            "likedIngredients": [
+                "Salmon",
+                "Sardines",
+                "Olive oil",
+                "Tomatoes"
+            ],
+            "dislikedIngredients": [
+                "Shrimp",
+                "Crab"
+            ],
+            "favoriteCuisines": [
+                "Mediterranean",
+                "Nordic"
+            ]
+        }
+    },
+    {
+        "id": "user_08",
+        "description": "A strict keto eater with chronic kidney disease needing careful protein and potassium.",
+        "profile": {
+            "age": 60,
+            "gender": "Female",
+            "height": 162.0,
+            "weight": 70.0,
+            "activityLevel": "sedentary",
+            "dietary_goal": "Medical Management",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [
+                        "Keto"
+                    ],
+                    "other": "Must monitor potassium/phosphorus; moderate protein"
+                },
+                "foodAllergies": {
+                    "selected": [],
+                    "other": ""
+                },
+                "healthConditions": {
+                    "selected": [
+                        "Kidney Disease"
+                    ],
+                    "other": "CKD stage 3"
+                }
+            },
+            "likedIngredients": [
+                "Cauliflower",
+                "Zucchini",
+                "Eggs",
+                "Olive oil"
+            ],
+            "dislikedIngredients": [
+                "Bananas",
+                "Orange juice"
+            ],
+            "favoriteCuisines": [
+                "American",
+                "Mediterranean"
+            ]
+        }
+    },
+    {
+        "id": "user_09",
+        "description": "A night-shift nurse with GERD seeking reflux-friendly meals for energy.",
+        "profile": {
+            "age": 29,
+            "gender": "Female",
+            "height": 170.0,
+            "weight": 63.0,
+            "activityLevel": "moderately_active",
+            "dietary_goal": "Energy Boost",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [
+                        "Low Acid"
+                    ],
+                    "other": "Avoids trigger foods on shift; prefers easy prep"
+                },
+                "foodAllergies": {
+                    "selected": [],
+                    "other": ""
+                },
+                "healthConditions": {
+                    "selected": [
+                        "GERD"
+                    ],
+                    "other": ""
+                }
+            },
+            "likedIngredients": [
+                "Oatmeal",
+                "Bananas",
+                "Chicken breast",
+                "Ginger"
+            ],
+            "dislikedIngredients": [
+                "Tomatoes",
+                "Coffee"
+            ],
+            "favoriteCuisines": [
+                "American",
+                "Korean"
+            ]
+        }
+    },
+    {
+        "id": "user_10",
+        "description": "An autistic adult with sensory aversions who needs balanced maintenance meals.",
+        "profile": {
+            "age": 24,
+            "gender": "Male",
+            "height": 180.0,
+            "weight": 72.0,
+            "activityLevel": "lightly_active",
+            "dietary_goal": "Maintenance",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [],
+                    "other": "Strong texture aversions; prefers predictable foods"
+                },
+                "foodAllergies": {
+                    "selected": [],
+                    "other": ""
+                },
+                "healthConditions": {
+                    "selected": [
+                        "Autism Spectrum"
+                    ],
+                    "other": "Sensory processing challenges"
+                }
+            },
+            "likedIngredients": [
+                "Plain pasta",
+                "Chicken nuggets (baked)",
+                "Apples",
+                "Carrots"
+            ],
+            "dislikedIngredients": [
+                "Mixed textures (stews)",
+                "Mushrooms"
+            ],
+            "favoriteCuisines": [
+                "American",
+                "Italian"
+            ]
+        }
+    },
+    {
+        "id": "user_11",
+        "description": "A lactose-intolerant powerlifter doing a high-calorie bulk without dairy.",
+        "profile": {
+            "age": 33,
+            "gender": "Male",
+            "height": 188.0,
+            "weight": 96.0,
+            "activityLevel": "very_active",
+            "dietary_goal": "Muscle Gain",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [
+                        "Lactose-Free",
+                        "High Protein"
+                    ],
+                    "other": "Needs calorie-dense meals"
+                },
+                "foodAllergies": {
+                    "selected": [],
+                    "other": ""
+                },
+                "healthConditions": {
+                    "selected": [],
+                    "other": ""
+                }
+            },
+            "likedIngredients": [
+                "Rice",
+                "Ground beef",
+                "Eggs",
+                "Avocado"
+            ],
+            "dislikedIngredients": [
+                "Milk",
+                "Ice cream"
+            ],
+            "favoriteCuisines": [
+                "Mexican",
+                "American"
+            ]
+        }
+    },
+    {
+        "id": "user_12",
+        "description": "A person with IBS on low-FODMAP trying to lose weight without flare-ups.",
+        "profile": {
+            "age": 39,
+            "gender": "Female",
+            "height": 165.0,
+            "weight": 81.0,
+            "activityLevel": "lightly_active",
+            "dietary_goal": "Weight Loss",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [
+                        "Low FODMAP"
+                    ],
+                    "other": "Avoids onion/garlic; needs gentle fiber"
+                },
+                "foodAllergies": {
+                    "selected": [],
+                    "other": ""
+                },
+                "healthConditions": {
+                    "selected": [
+                        "IBS"
+                    ],
+                    "other": ""
+                }
+            },
+            "likedIngredients": [
+                "Rice",
+                "Zucchini",
+                "Eggs",
+                "Strawberries"
+            ],
+            "dislikedIngredients": [
+                "Onion",
+                "Garlic"
+            ],
+            "favoriteCuisines": [
+                "Japanese",
+                "Mediterranean"
+            ]
+        }
+    },
+    {
+        "id": "user_13",
+        "description": "A teen with phenylketonuria (PKU) needing strict low-protein medical foods.",
+        "profile": {
+            "age": 16,
+            "gender": "Female",
+            "height": 162.0,
+            "weight": 54.0,
+            "activityLevel": "moderately_active",
+            "dietary_goal": "Medical Management",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [
+                        "Low Protein"
+                    ],
+                    "other": "PKU formula required; must avoid high-Phe foods"
+                },
+                "foodAllergies": {
+                    "selected": [],
+                    "other": ""
+                },
+                "healthConditions": {
+                    "selected": [
+                        "PKU"
+                    ],
+                    "other": "Phenylketonuria"
+                }
+            },
+            "likedIngredients": [
+                "Low-protein pasta",
+                "Applesauce",
+                "Cucumbers",
+                "Low-protein bread"
+            ],
+            "dislikedIngredients": [
+                "Meat",
+                "Cheese"
+            ],
+            "favoriteCuisines": [
+                "Italian",
+                "American"
+            ]
+        }
+    },
+    {
+        "id": "user_14",
+        "description": "A person with alpha-gal syndrome avoiding mammal meat while trying to gain muscle.",
+        "profile": {
+            "age": 41,
+            "gender": "Male",
+            "height": 179.0,
+            "weight": 79.0,
+            "activityLevel": "moderately_active",
+            "dietary_goal": "Muscle Gain",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [
+                        "No Red Meat"
+                    ],
+                    "other": "Alpha-gal: avoids beef/pork/lamb and some gelatin"
+                },
+                "foodAllergies": {
+                    "selected": [],
+                    "other": "Alpha-gal reaction to mammalian products"
+                },
+                "healthConditions": {
+                    "selected": [
+                        "Food Allergy"
+                    ],
+                    "other": "Alpha-gal syndrome"
+                }
+            },
+            "likedIngredients": [
+                "Chicken",
+                "Turkey",
+                "Fish",
+                "Beans"
+            ],
+            "dislikedIngredients": [
+                "Beef",
+                "Pork"
+            ],
+            "favoriteCuisines": [
+                "Thai",
+                "Mediterranean"
+            ]
+        }
+    },
+    {
+        "id": "user_15",
+        "description": "A Buddhist monk eating vegan and no pungent roots, aiming for calm maintenance.",
+        "profile": {
+            "age": 48,
+            "gender": "Male",
+            "height": 170.0,
+            "weight": 62.0,
+            "activityLevel": "lightly_active",
+            "dietary_goal": "Maintenance",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [
+                        "Vegan"
+                    ],
+                    "other": "Avoids onion, garlic, leeks, chives (pungent roots)"
+                },
+                "foodAllergies": {
+                    "selected": [],
+                    "other": ""
+                },
+                "healthConditions": {
+                    "selected": [],
+                    "other": ""
+                }
+            },
+            "likedIngredients": [
+                "Rice",
+                "Tofu",
+                "Bok choy",
+                "Sesame"
+            ],
+            "dislikedIngredients": [
+                "Garlic",
+                "Onion"
+            ],
+            "favoriteCuisines": [
+                "Chinese",
+                "Japanese"
+            ]
+        }
+    },
+    {
+        "id": "user_16",
+        "description": "A person with severe peanut allergy and asthma needing safe meal suggestions.",
+        "profile": {
+            "age": 27,
+            "gender": "Female",
+            "height": 164.0,
+            "weight": 58.0,
+            "activityLevel": "moderately_active",
+            "dietary_goal": "Maintenance",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [],
+                    "other": "Prefers packaged foods with clear allergen labeling"
+                },
+                "foodAllergies": {
+                    "selected": [
+                        "Peanuts"
+                    ],
+                    "other": "Carries epinephrine; avoids may-contain"
+                },
+                "healthConditions": {
+                    "selected": [
+                        "Asthma"
+                    ],
+                    "other": ""
+                }
+            },
+            "likedIngredients": [
+                "Chicken",
+                "Rice",
+                "Yogurt",
+                "Blueberries"
+            ],
+            "dislikedIngredients": [
+                "Satay sauces",
+                "Peanut oil"
+            ],
+            "favoriteCuisines": [
+                "Mediterranean",
+                "American"
+            ]
+        }
+    },
+    {
+        "id": "user_17",
+        "description": "A person with hypertension on a strict low-sodium plan trying to lose weight.",
+        "profile": {
+            "age": 57,
+            "gender": "Male",
+            "height": 173.0,
+            "weight": 89.0,
+            "activityLevel": "lightly_active",
+            "dietary_goal": "Weight Loss",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [
+                        "Low Sodium"
+                    ],
+                    "other": "Targets <1500 mg/day; avoids processed foods"
+                },
+                "foodAllergies": {
+                    "selected": [],
+                    "other": ""
+                },
+                "healthConditions": {
+                    "selected": [
+                        "Hypertension"
+                    ],
+                    "other": ""
+                }
+            },
+            "likedIngredients": [
+                "Oats",
+                "Beans (no-salt)",
+                "Fresh herbs",
+                "Sweet potatoes"
+            ],
+            "dislikedIngredients": [
+                "Deli meats",
+                "Pickles"
+            ],
+            "favoriteCuisines": [
+                "Mediterranean",
+                "American"
+            ]
+        }
+    },
+    {
+        "id": "user_18",
+        "description": "A person with ARFID and underweight status seeking gentle energy-boosting foods.",
+        "profile": {
+            "age": 22,
+            "gender": "Female",
+            "height": 167.0,
+            "weight": 47.0,
+            "activityLevel": "sedentary",
+            "dietary_goal": "Energy Boost",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [],
+                    "other": "Very limited safe foods; needs gradual variety expansion"
+                },
+                "foodAllergies": {
+                    "selected": [],
+                    "other": ""
+                },
+                "healthConditions": {
+                    "selected": [
+                        "ARFID"
+                    ],
+                    "other": "Avoidant/Restrictive Food Intake Disorder"
+                }
+            },
+            "likedIngredients": [
+                "Plain white bread",
+                "Cheddar",
+                "Chicken broth",
+                "Bananas"
+            ],
+            "dislikedIngredients": [
+                "Spicy foods",
+                "Mixed salads"
+            ],
+            "favoriteCuisines": [
+                "American"
+            ]
+        }
+    },
+    {
+        "id": "user_19",
+        "description": "An endurance cyclist following halal and dairy-free rules while maintaining weight.",
+        "profile": {
+            "age": 30,
+            "gender": "Male",
+            "height": 176.0,
+            "weight": 71.0,
+            "activityLevel": "very_active",
+            "dietary_goal": "Maintenance",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [
+                        "Halal",
+                        "Dairy-Free"
+                    ],
+                    "other": "Needs frequent snacks during rides"
+                },
+                "foodAllergies": {
+                    "selected": [],
+                    "other": ""
+                },
+                "healthConditions": {
+                    "selected": [],
+                    "other": ""
+                }
+            },
+            "likedIngredients": [
+                "Dates",
+                "Chicken",
+                "Rice",
+                "Hummus"
+            ],
+            "dislikedIngredients": [
+                "Pork",
+                "Cream-based sauces"
+            ],
+            "favoriteCuisines": [
+                "Middle Eastern",
+                "North African"
+            ]
+        }
+    },
+    {
+        "id": "user_20",
+        "description": "A person with migraine triggers avoiding aged foods while seeking steady energy.",
+        "profile": {
+            "age": 36,
+            "gender": "Female",
+            "height": 169.0,
+            "weight": 61.0,
+            "activityLevel": "moderately_active",
+            "dietary_goal": "Energy Boost",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [],
+                    "other": "Avoids tyramine-rich foods (aged cheese, cured meats)"
+                },
+                "foodAllergies": {
+                    "selected": [],
+                    "other": ""
+                },
+                "healthConditions": {
+                    "selected": [
+                        "Migraines"
+                    ],
+                    "other": ""
+                }
+            },
+            "likedIngredients": [
+                "Fresh chicken",
+                "Brown rice",
+                "Blueberries",
+                "Spinach"
+            ],
+            "dislikedIngredients": [
+                "Aged cheese",
+                "Salami"
+            ],
+            "favoriteCuisines": [
+                "Mediterranean",
+                "American"
+            ]
+        }
+    },
+    {
+        "id": "user_21",
+        "description": "A person with eosinophilic esophagitis avoiding multiple common allergens for symptom control.",
+        "profile": {
+            "age": 12,
+            "gender": "Male",
+            "height": 150.0,
+            "weight": 42.0,
+            "activityLevel": "moderately_active",
+            "dietary_goal": "Medical Management",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [
+                        "Elimination Diet"
+                    ],
+                    "other": "Avoids top allergens per clinician guidance"
+                },
+                "foodAllergies": {
+                    "selected": [
+                        "Milk",
+                        "Eggs",
+                        "Wheat",
+                        "Soy",
+                        "Peanuts",
+                        "Tree Nuts"
+                    ],
+                    "other": ""
+                },
+                "healthConditions": {
+                    "selected": [
+                        "EoE"
+                    ],
+                    "other": "Eosinophilic esophagitis"
+                }
+            },
+            "likedIngredients": [
+                "Rice",
+                "Turkey",
+                "Pears",
+                "Coconut yogurt"
+            ],
+            "dislikedIngredients": [
+                "Cheese",
+                "Bread"
+            ],
+            "favoriteCuisines": [
+                "American",
+                "Japanese"
+            ]
+        }
+    },
+    {
+        "id": "user_22",
+        "description": "A person with gout managing uric acid by limiting purines while maintaining weight.",
+        "profile": {
+            "age": 55,
+            "gender": "Male",
+            "height": 178.0,
+            "weight": 86.0,
+            "activityLevel": "lightly_active",
+            "dietary_goal": "Medical Management",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [
+                        "Low Purine"
+                    ],
+                    "other": "Limits organ meats, anchovies; moderates alcohol"
+                },
+                "foodAllergies": {
+                    "selected": [],
+                    "other": ""
+                },
+                "healthConditions": {
+                    "selected": [
+                        "Gout"
+                    ],
+                    "other": ""
+                }
+            },
+            "likedIngredients": [
+                "Low-fat yogurt",
+                "Cherries",
+                "Oats",
+                "Chicken breast"
+            ],
+            "dislikedIngredients": [
+                "Liver",
+                "Anchovies"
+            ],
+            "favoriteCuisines": [
+                "Mediterranean",
+                "American"
+            ]
+        }
+    },
+    {
+        "id": "user_23",
+        "description": "A strict Jain eater avoiding root vegetables and eggs, aiming for weight loss.",
+        "profile": {
+            "age": 40,
+            "gender": "Female",
+            "height": 155.0,
+            "weight": 73.0,
+            "activityLevel": "lightly_active",
+            "dietary_goal": "Weight Loss",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [
+                        "Jain Vegetarian"
+                    ],
+                    "other": "No roots (onion, garlic, potatoes, carrots); no eggs"
+                },
+                "foodAllergies": {
+                    "selected": [],
+                    "other": ""
+                },
+                "healthConditions": {
+                    "selected": [],
+                    "other": ""
+                }
+            },
+            "likedIngredients": [
+                "Moong dal",
+                "Rice",
+                "Tomatoes",
+                "Cucumber"
+            ],
+            "dislikedIngredients": [
+                "Onion",
+                "Potato"
+            ],
+            "favoriteCuisines": [
+                "Indian"
+            ]
+        }
+    },
+    {
+        "id": "user_24",
+        "description": "A person with lupus on steroids needing calcium/vitamin D and weight management.",
+        "profile": {
+            "age": 38,
+            "gender": "Female",
+            "height": 166.0,
+            "weight": 78.0,
+            "activityLevel": "sedentary",
+            "dietary_goal": "Medical Management",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [
+                        "Anti-Inflammatory"
+                    ],
+                    "other": "Steroid-related appetite; focuses on bone health"
+                },
+                "foodAllergies": {
+                    "selected": [],
+                    "other": ""
+                },
+                "healthConditions": {
+                    "selected": [
+                        "Lupus"
+                    ],
+                    "other": ""
+                }
+            },
+            "likedIngredients": [
+                "Salmon",
+                "Leafy greens",
+                "Fortified plant milk",
+                "Berries"
+            ],
+            "dislikedIngredients": [
+                "Sugary drinks",
+                "Processed meats"
+            ],
+            "favoriteCuisines": [
+                "Mediterranean"
+            ]
+        }
+    },
+    {
+        "id": "user_25",
+        "description": "A person with epilepsy on ketogenic therapy needing strict ratios and consistency.",
+        "profile": {
+            "age": 9,
+            "gender": "Female",
+            "height": 132.0,
+            "weight": 28.0,
+            "activityLevel": "lightly_active",
+            "dietary_goal": "Medical Management",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [
+                        "Keto"
+                    ],
+                    "other": "Therapeutic keto; meals must be precisely measured"
+                },
+                "foodAllergies": {
+                    "selected": [],
+                    "other": ""
+                },
+                "healthConditions": {
+                    "selected": [
+                        "Epilepsy"
+                    ],
+                    "other": ""
+                }
+            },
+            "likedIngredients": [
+                "Avocado",
+                "Eggs",
+                "Heavy cream",
+                "Zucchini"
+            ],
+            "dislikedIngredients": [
+                "Bread",
+                "Candy"
+            ],
+            "favoriteCuisines": [
+                "American"
+            ]
+        }
+    },
+    {
+        "id": "user_26",
+        "description": "A person with histamine intolerance avoiding fermented foods to reduce reactions.",
+        "profile": {
+            "age": 32,
+            "gender": "Male",
+            "height": 181.0,
+            "weight": 75.0,
+            "activityLevel": "moderately_active",
+            "dietary_goal": "Medical Management",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [
+                        "Low Histamine"
+                    ],
+                    "other": "Avoids leftovers/aged foods; prefers fresh-cooked"
+                },
+                "foodAllergies": {
+                    "selected": [],
+                    "other": ""
+                },
+                "healthConditions": {
+                    "selected": [
+                        "Histamine Intolerance"
+                    ],
+                    "other": ""
+                }
+            },
+            "likedIngredients": [
+                "Fresh chicken",
+                "Rice",
+                "Blueberries",
+                "Cabbage"
+            ],
+            "dislikedIngredients": [
+                "Sauerkraut",
+                "Aged cheese"
+            ],
+            "favoriteCuisines": [
+                "Japanese",
+                "American"
+            ]
+        }
+    },
+    {
+        "id": "user_27",
+        "description": "A person with severe gastroparesis needing small, low-fat, low-fiber meals.",
+        "profile": {
+            "age": 49,
+            "gender": "Female",
+            "height": 163.0,
+            "weight": 59.0,
+            "activityLevel": "sedentary",
+            "dietary_goal": "Medical Management",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [
+                        "Low Fat",
+                        "Low Fiber"
+                    ],
+                    "other": "Prefers liquids/purees; frequent small meals"
+                },
+                "foodAllergies": {
+                    "selected": [],
+                    "other": ""
+                },
+                "healthConditions": {
+                    "selected": [
+                        "Gastroparesis"
+                    ],
+                    "other": ""
+                }
+            },
+            "likedIngredients": [
+                "Smoothies",
+                "Broth",
+                "White rice",
+                "Egg whites"
+            ],
+            "dislikedIngredients": [
+                "Raw salads",
+                "Fried foods"
+            ],
+            "favoriteCuisines": [
+                "American"
+            ]
+        }
+    },
+    {
+        "id": "user_28",
+        "description": "A firefighter with high activity needing quick muscle-gain meals and no fish.",
+        "profile": {
+            "age": 35,
+            "gender": "Male",
+            "height": 183.0,
+            "weight": 90.0,
+            "activityLevel": "very_active",
+            "dietary_goal": "Muscle Gain",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [
+                        "High Protein"
+                    ],
+                    "other": "Needs grab-and-go station meals; dislikes seafood"
+                },
+                "foodAllergies": {
+                    "selected": [],
+                    "other": ""
+                },
+                "healthConditions": {
+                    "selected": [],
+                    "other": ""
+                }
+            },
+            "likedIngredients": [
+                "Chicken thighs",
+                "Rice",
+                "Beans",
+                "Eggs"
+            ],
+            "dislikedIngredients": [
+                "Salmon",
+                "Tuna"
+            ],
+            "favoriteCuisines": [
+                "Mexican",
+                "American",
+                "BBQ"
+            ]
+        }
+    },
+    {
+        "id": "user_29",
+        "description": "A person with rheumatoid arthritis avoiding nightshades and seeking anti-inflammatory maintenance.",
+        "profile": {
+            "age": 63,
+            "gender": "Female",
+            "height": 159.0,
+            "weight": 68.0,
+            "activityLevel": "lightly_active",
+            "dietary_goal": "Maintenance",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [
+                        "Anti-Inflammatory"
+                    ],
+                    "other": "Avoids nightshades (tomatoes, peppers, eggplant)"
+                },
+                "foodAllergies": {
+                    "selected": [],
+                    "other": ""
+                },
+                "healthConditions": {
+                    "selected": [
+                        "Rheumatoid Arthritis"
+                    ],
+                    "other": ""
+                }
+            },
+            "likedIngredients": [
+                "Salmon",
+                "Leafy greens",
+                "Olive oil",
+                "Berries"
+            ],
+            "dislikedIngredients": [
+                "Tomatoes",
+                "Bell peppers"
+            ],
+            "favoriteCuisines": [
+                "Mediterranean"
+            ]
+        }
+    },
+    {
+        "id": "user_30",
+        "description": "A person observing kosher rules with dairy allergy trying to maintain weight.",
+        "profile": {
+            "age": 44,
+            "gender": "Male",
+            "height": 171.0,
+            "weight": 74.0,
+            "activityLevel": "moderately_active",
+            "dietary_goal": "Maintenance",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [
+                        "Kosher"
+                    ],
+                    "other": "Avoids mixing meat/dairy; also dairy allergy"
+                },
+                "foodAllergies": {
+                    "selected": [
+                        "Milk"
+                    ],
+                    "other": ""
+                },
+                "healthConditions": {
+                    "selected": [],
+                    "other": ""
+                }
+            },
+            "likedIngredients": [
+                "Chicken",
+                "Quinoa",
+                "Tahini",
+                "Cucumbers"
+            ],
+            "dislikedIngredients": [
+                "Cheese",
+                "Butter"
+            ],
+            "favoriteCuisines": [
+                "Middle Eastern",
+                "Mediterranean"
+            ]
+        }
+    },
+    {
+        "id": "user_31",
+        "description": "A person with ADHD who forgets meals, seeking easy energy-boosting meal reminders and foods.",
+        "profile": {
+            "age": 27,
+            "gender": "Male",
+            "height": 174.0,
+            "weight": 69.0,
+            "activityLevel": "lightly_active",
+            "dietary_goal": "Energy Boost",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [],
+                    "other": "Prefers minimal-prep foods; tends to snack"
+                },
+                "foodAllergies": {
+                    "selected": [],
+                    "other": ""
+                },
+                "healthConditions": {
+                    "selected": [
+                        "ADHD"
+                    ],
+                    "other": ""
+                }
+            },
+            "likedIngredients": [
+                "Peanut butter",
+                "Bananas",
+                "Overnight oats",
+                "Rotisserie chicken"
+            ],
+            "dislikedIngredients": [
+                "Complicated recipes",
+                "Bitter greens"
+            ],
+            "favoriteCuisines": [
+                "American",
+                "Mexican"
+            ]
+        }
+    },
+    {
+        "id": "user_32",
+        "description": "A person with severe sesame allergy navigating global cuisines while losing weight.",
+        "profile": {
+            "age": 23,
+            "gender": "Female",
+            "height": 161.0,
+            "weight": 76.0,
+            "activityLevel": "moderately_active",
+            "dietary_goal": "Weight Loss",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [],
+                    "other": "Avoids sesame oil/seeds; cautious with Middle Eastern/Asian foods"
+                },
+                "foodAllergies": {
+                    "selected": [
+                        "Sesame"
+                    ],
+                    "other": "Avoids may-contain"
+                },
+                "healthConditions": {
+                    "selected": [],
+                    "other": ""
+                }
+            },
+            "likedIngredients": [
+                "Chicken",
+                "Cabbage",
+                "Rice noodles",
+                "Citrus"
+            ],
+            "dislikedIngredients": [
+                "Tahini",
+                "Sesame oil"
+            ],
+            "favoriteCuisines": [
+                "Vietnamese",
+                "Mexican"
+            ]
+        }
+    },
+    {
+        "id": "user_33",
+        "description": "A person with hypothyroidism avoiding goitrogen-heavy raw crucifers while cutting calories.",
+        "profile": {
+            "age": 46,
+            "gender": "Female",
+            "height": 167.0,
+            "weight": 88.0,
+            "activityLevel": "lightly_active",
+            "dietary_goal": "Weight Loss",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [],
+                    "other": "Prefers cooked crucifers; watches iodine intake consistency"
+                },
+                "foodAllergies": {
+                    "selected": [],
+                    "other": ""
+                },
+                "healthConditions": {
+                    "selected": [
+                        "Hypothyroidism"
+                    ],
+                    "other": ""
+                }
+            },
+            "likedIngredients": [
+                "Cooked broccoli",
+                "Eggs",
+                "Berries",
+                "Chicken"
+            ],
+            "dislikedIngredients": [
+                "Raw kale smoothies",
+                "Sugary pastries"
+            ],
+            "favoriteCuisines": [
+                "Mediterranean",
+                "American"
+            ]
+        }
+    },
+    {
+        "id": "user_34",
+        "description": "A person with chronic pancreatitis needing very low-fat meals for symptom control.",
+        "profile": {
+            "age": 58,
+            "gender": "Male",
+            "height": 176.0,
+            "weight": 65.0,
+            "activityLevel": "sedentary",
+            "dietary_goal": "Medical Management",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [
+                        "Low Fat"
+                    ],
+                    "other": "Requires pancreatic enzymes; avoids greasy foods"
+                },
+                "foodAllergies": {
+                    "selected": [],
+                    "other": ""
+                },
+                "healthConditions": {
+                    "selected": [
+                        "Pancreatitis"
+                    ],
+                    "other": "Chronic pancreatitis"
+                }
+            },
+            "likedIngredients": [
+                "White fish",
+                "Rice",
+                "Steamed vegetables",
+                "Fruit"
+            ],
+            "dislikedIngredients": [
+                "Fried foods",
+                "Cream sauces"
+            ],
+            "favoriteCuisines": [
+                "Japanese",
+                "Mediterranean"
+            ]
+        }
+    },
+    {
+        "id": "user_35",
+        "description": "A competitive CrossFitter doing paleo with egg allergy, aiming for muscle gain.",
+        "profile": {
+            "age": 29,
+            "gender": "Female",
+            "height": 170.0,
+            "weight": 70.0,
+            "activityLevel": "very_active",
+            "dietary_goal": "Muscle Gain",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [
+                        "Paleo"
+                    ],
+                    "other": "No grains/legumes/dairy; must avoid eggs"
+                },
+                "foodAllergies": {
+                    "selected": [
+                        "Eggs"
+                    ],
+                    "other": ""
+                },
+                "healthConditions": {
+                    "selected": [],
+                    "other": ""
+                }
+            },
+            "likedIngredients": [
+                "Chicken",
+                "Sweet potatoes",
+                "Avocado",
+                "Berries"
+            ],
+            "dislikedIngredients": [
+                "Oatmeal",
+                "Scrambled eggs"
+            ],
+            "favoriteCuisines": [
+                "American",
+                "Mexican"
+            ]
+        }
+    },
+    {
+        "id": "user_36",
+        "description": "A person with heart failure needing fluid and sodium restriction for medical management.",
+        "profile": {
+            "age": 71,
+            "gender": "Female",
+            "height": 157.0,
+            "weight": 72.0,
+            "activityLevel": "sedentary",
+            "dietary_goal": "Medical Management",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [
+                        "Low Sodium"
+                    ],
+                    "other": "Fluid restriction; monitors daily weights"
+                },
+                "foodAllergies": {
+                    "selected": [],
+                    "other": ""
+                },
+                "healthConditions": {
+                    "selected": [
+                        "Heart Failure"
+                    ],
+                    "other": ""
+                }
+            },
+            "likedIngredients": [
+                "Unsalted oatmeal",
+                "Fresh berries",
+                "No-salt beans",
+                "Herbs"
+            ],
+            "dislikedIngredients": [
+                "Canned soups",
+                "Fast food"
+            ],
+            "favoriteCuisines": [
+                "American",
+                "Mediterranean"
+            ]
+        }
+    },
+    {
+        "id": "user_37",
+        "description": "A person with ulcerative colitis in flare needing low-residue foods to maintain weight.",
+        "profile": {
+            "age": 33,
+            "gender": "Male",
+            "height": 180.0,
+            "weight": 68.0,
+            "activityLevel": "lightly_active",
+            "dietary_goal": "Medical Management",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [
+                        "Low Fiber"
+                    ],
+                    "other": "During flares avoids seeds/skins; prefers bland foods"
+                },
+                "foodAllergies": {
+                    "selected": [],
+                    "other": ""
+                },
+                "healthConditions": {
+                    "selected": [
+                        "Ulcerative Colitis"
+                    ],
+                    "other": ""
+                }
+            },
+            "likedIngredients": [
+                "White rice",
+                "Bananas",
+                "Lean chicken",
+                "Applesauce"
+            ],
+            "dislikedIngredients": [
+                "Popcorn",
+                "Raw cabbage"
+            ],
+            "favoriteCuisines": [
+                "American",
+                "Japanese"
+            ]
+        }
+    },
+    {
+        "id": "user_38",
+        "description": "A person with multiple oral allergy syndrome reactions seeking safe produce options.",
+        "profile": {
+            "age": 19,
+            "gender": "Female",
+            "height": 164.0,
+            "weight": 55.0,
+            "activityLevel": "moderately_active",
+            "dietary_goal": "Maintenance",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [],
+                    "other": "OAS: reacts to raw apples/stone fruits; tolerates cooked"
+                },
+                "foodAllergies": {
+                    "selected": [
+                        "Apples"
+                    ],
+                    "other": "Oral allergy syndrome to birch-related fruits (raw)"
+                },
+                "healthConditions": {
+                    "selected": [
+                        "Food Allergy"
+                    ],
+                    "other": "Oral allergy syndrome"
+                }
+            },
+            "likedIngredients": [
+                "Cooked apples",
+                "Berries",
+                "Chicken",
+                "Rice"
+            ],
+            "dislikedIngredients": [
+                "Raw apples",
+                "Raw peaches"
+            ],
+            "favoriteCuisines": [
+                "French",
+                "American"
+            ]
+        }
+    },
+    {
+        "id": "user_39",
+        "description": "A person with COPD who gets breathless while eating and needs small, high-energy meals.",
+        "profile": {
+            "age": 68,
+            "gender": "Male",
+            "height": 172.0,
+            "weight": 59.0,
+            "activityLevel": "sedentary",
+            "dietary_goal": "Energy Boost",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [
+                        "High Calorie"
+                    ],
+                    "other": "Small frequent meals; easy-to-chew textures"
+                },
+                "foodAllergies": {
+                    "selected": [],
+                    "other": ""
+                },
+                "healthConditions": {
+                    "selected": [
+                        "COPD"
+                    ],
+                    "other": ""
+                }
+            },
+            "likedIngredients": [
+                "Nut butter",
+                "Smoothies",
+                "Eggs",
+                "Soft rice"
+            ],
+            "dislikedIngredients": [
+                "Dry crackers",
+                "Tough steak"
+            ],
+            "favoriteCuisines": [
+                "American"
+            ]
+        }
+    },
+    {
+        "id": "user_40",
+        "description": "A person with prediabetes and NAFLD aiming for weight loss with Mediterranean-style meals.",
+        "profile": {
+            "age": 42,
+            "gender": "Male",
+            "height": 178.0,
+            "weight": 102.0,
+            "activityLevel": "moderately_active",
+            "dietary_goal": "Weight Loss",
+            "dietaryProfile": {
+                "dietaryRestrictions": {
+                    "selected": [
+                        "Mediterranean"
+                    ],
+                    "other": "Limits added sugar and refined carbs; watches saturated fat"
+                },
+                "foodAllergies": {
+                    "selected": [],
+                    "other": ""
+                },
+                "healthConditions": {
+                    "selected": [
+                        "Prediabetes",
+                        "Fatty Liver Disease"
+                    ],
+                    "other": "NAFLD"
+                }
+            },
+            "likedIngredients": [
+                "Olive oil",
+                "Legumes",
+                "Fish",
+                "Vegetables"
+            ],
+            "dislikedIngredients": [
+                "Sugary soda",
+                "White bread"
+            ],
+            "favoriteCuisines": [
+                "Mediterranean",
+                "Middle Eastern"
+            ]
+        }
+    }
+]
