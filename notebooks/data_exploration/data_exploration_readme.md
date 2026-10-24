@@ -22,7 +22,7 @@ Token files store tokenized text. Lemma files store lemmatized text.
 
 ## Helpers
 
-Source: `data_exploration_helpers.py`
+Source: [`preprocess_helpers.py`](../preprocess_helpers.py)
 
 Tools for finding, in an explanation, things that exist in the data. They are built once from the persona and recipe data only, so explanations from every model are processed in exactly the same way.
 

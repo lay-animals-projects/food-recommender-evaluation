@@ -200,6 +200,96 @@ def add_text_items(records, entity_id, source_field, value, lemma_column, keep_n
         )
 
 
+def build_text_records(recommendations, recipes, personas_df):
+    """Build text records for explanations, recipes, and personas."""
+    explanation_records = []
+
+    for item in recommendations:
+        persona_id = str(item["persona"]["id"])
+
+        for rank, recommendation in enumerate(item["recommendations"], start=1):
+            recipe_id = str(recommendation["recipe_id"])
+            recommendation_id = f"{persona_id}_rank_{rank:02d}"
+
+            add_text_items(
+                explanation_records,
+                entity_id=recommendation_id,
+                source_field="explanation",
+                value=recommendation["explanation"],
+                lemma_column="explanation_lemmas",
+                keep_numbers=True,
+                persona_id=persona_id,
+                recipe_id=recipe_id,
+                rank=rank,
+                recommendation_id=recommendation_id,
+            )
+
+    recipe_records = []
+
+    for _, row in recipes.drop_duplicates("recipe_id").iterrows():
+        recipe_id = str(row["recipe_id"])
+
+        add_text_items(
+            recipe_records,
+            entity_id=recipe_id,
+            source_field="recipe_title",
+            value=row["title"],
+            lemma_column="recipe_text_lemmas",
+            keep_numbers=True,
+            recipe_id=recipe_id,
+        )
+        add_text_items(
+            recipe_records,
+            entity_id=recipe_id,
+            source_field="recipe_ingredient",
+            value=row["ingredients_title"],
+            lemma_column="recipe_text_lemmas",
+            keep_numbers=False,
+            recipe_id=recipe_id,
+            remove_ingredient_quantities=True,
+        )
+        add_text_items(
+            recipe_records,
+            entity_id=recipe_id,
+            source_field="recipe_tag",
+            value=row["tags"],
+            lemma_column="recipe_text_lemmas",
+            keep_numbers=True,
+            recipe_id=recipe_id,
+        )
+
+    persona_records = []
+    persona_fields = {
+        "description": "persona_description",
+        "profile.dietary_goal": "dietary_goal",
+        "profile.dietaryProfile.dietaryRestrictions.selected": "dietary_restriction",
+        "profile.dietaryProfile.dietaryRestrictions.other": "dietary_restriction_other",
+        "profile.dietaryProfile.foodAllergies.selected": "food_allergy",
+        "profile.dietaryProfile.foodAllergies.other": "food_allergy_other",
+        "profile.dietaryProfile.healthConditions.selected": "health_condition",
+        "profile.dietaryProfile.healthConditions.other": "health_condition_other",
+        "profile.likedIngredients": "liked_ingredient",
+        "profile.dislikedIngredients": "disliked_ingredient",
+        "profile.favoriteCuisines": "favorite_cuisine",
+    }
+
+    for _, row in personas_df.iterrows():
+        persona_id = str(row["id"])
+
+        for column, source_field in persona_fields.items():
+            add_text_items(
+                persona_records,
+                entity_id=persona_id,
+                source_field=source_field,
+                value=row[column],
+                lemma_column="persona_text_lemmas",
+                keep_numbers=True,
+                persona_id=persona_id,
+            )
+
+    return explanation_records, recipe_records, persona_records
+
+
 def is_number(value):
     """Check whether a token is a whole or decimal number."""
     return bool(re.fullmatch(r"\d+(?:\.\d+)?", value))
