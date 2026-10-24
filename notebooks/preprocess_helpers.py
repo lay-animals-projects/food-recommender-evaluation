@@ -614,6 +614,230 @@ def build_matching_resources(persona_lemmas_df, recipe_lemmas_df, recipe_table, 
     }
 
 
+# Extraction-verification variants
+
+
+@lru_cache(maxsize=None)
+def food_senses_1(words):
+    """Return the WordNet noun senses in which *words* names a food."""
+    senses = wn.synsets("_".join(words), pos=wn.NOUN)
+    return tuple(
+        sense for sense in senses
+        if sense in FOOD_SYNSETS or FOOD_SYNSETS & set(sense.closure(lambda s: s.hypernyms()))
+    )
+
+
+def food_name_1(words):
+    """Return the longest ending of *words* that WordNet recognizes as food."""
+    for start in range(len(words)):
+        if food_senses_1(tuple(words[start:])):
+            return list(words[start:])
+    return None
+
+
+def different_foods_1(first, second):
+    """Whether WordNet knows both phrases as unrelated foods."""
+    first_senses = food_senses_1(tuple(first))
+    second_senses = food_senses_1(tuple(second))
+    if not first_senses or not second_senses:
+        return False
+    for first_sense in first_senses:
+        for second_sense in second_senses:
+            if (
+                first_sense == second_sense
+                or second_sense in set(first_sense.closure(lambda s: s.hypernyms()))
+                or first_sense in set(second_sense.closure(lambda s: s.hypernyms()))
+            ):
+                return False
+    return True
+
+
+def liked_food_name_1(lemmas, core):
+    """Return the user's complete food name up to the liked item's core noun."""
+    words = base_forms(lemmas)
+    if not core or core[-1] not in words:
+        return None
+    end = len(words) - words[::-1].index(core[-1])
+    return food_name_1(words[:end])
+
+
+def liked_food_here_1(terms, end, value, user_food):
+    """Check that a matched liked-item core does not name a different food here."""
+    here = food_name_1(terms[max(0, end - 3):end]) or value
+    return user_food is None or not different_foods_1(here, user_food)
+
+
+def build_persona_values(persona_lemmas_df):
+    # Persona fields: the taste profile and the dietary needs.
+    TASTE_FIELDS = [
+        "liked_ingredient",
+        "disliked_ingredient",
+        "favorite_cuisine",
+    ]
+    HEALTH_FIELDS = [
+        "dietary_goal",
+        "dietary_restriction",
+        "food_allergy",
+        "health_condition",
+    ]
+
+    # Liked ingredients keep only their core noun phrase ("frozen vegetables" -> "vegetable").
+    # Disliked ingredients keep their full phrase, because the describing word is often
+    # what the user dislikes ("spicy foods", "complicated recipes").
+    NOUN_PHRASE_FIELDS = [
+        "liked_ingredient",
+    ]
+
+    # Allergens are foods ("egg", "milk"), so they are not general health labels.
+    NOT_A_LABEL_FIELDS = ["food_allergy"]
+
+    # persona_id: [(source_field, term)]
+    persona_values = {}
+
+    # (persona_id, liked item core) -> the user's food as WordNet names it
+    liked_food_names = {}
+
+    for row in persona_lemmas_df.to_dict("records"):
+        # Only personal taste and dietary information are relevant.
+        field = row["source_field"]
+
+        if field not in TASTE_FIELDS + HEALTH_FIELDS:
+            continue
+
+        lemmas = to_list(row["persona_text_lemmas"])
+        terms = (
+            item_key(lemmas)
+            if field in NOUN_PHRASE_FIELDS
+            else base_forms(lemmas)
+        )
+
+        if terms:
+            persona_values.setdefault(
+                str(row["persona_id"]),
+                [],
+            ).append((field, terms))  # source field -> term
+
+            # keep the user's food, so a shortened liked item is not matched to a different food
+            if field == "liked_ingredient":
+                liked_food_names[(str(row["persona_id"]), tuple(terms))] = liked_food_name_1(lemmas, terms)
+
+    # get taste terms
+    taste_values = {
+        tuple(terms)
+        for values in persona_values.values()
+        for field, terms in values
+        if field in TASTE_FIELDS
+    }
+
+    # health labels
+    health_label_values = sorted({
+        tuple(terms)  # keep terms
+        for values in persona_values.values()
+        for field, terms in values
+        if (
+            # is health not allergy
+            field in HEALTH_FIELDS
+            and field not in NOT_A_LABEL_FIELDS
+            and tuple(terms) not in taste_values
+        )
+    })
+
+    return persona_values, health_label_values, liked_food_names
+
+
+def build_recipe_titles(recipe_lemmas_df):
+    # id: title [lemmas]
+    return {
+        str(row["recipe_id"]): base_forms(
+            to_list(row["recipe_text_lemmas"])
+        )
+        for row in recipe_lemmas_df.to_dict("records")
+        if row["source_field"] == "recipe_title"
+    }
+
+
+def build_ingredient_names(recipe_table):
+    # recipe -> ingredients
+    line_recipes = []
+    line_texts = []
+
+    for recipe_id, lines in zip(
+        recipe_table["recipe_id"].astype(str),
+        recipe_table["ingredients_title"],
+    ):
+        for line in to_list(lines):
+            line_recipes.append(recipe_id)
+            # drop note in brackets and append
+            line_texts.append(clean_ingredient_line(line))
+
+    # recipe_id: {(ingredient), (ingredient)}
+    ingredient_names = {}
+
+    for recipe_id, doc in zip(
+        line_recipes,
+        # spaCy tokenize and POS, output doc
+        text_nlp.pipe(line_texts, batch_size=256),
+    ):
+        # all the ingredients retrieved
+        for name in ingredient_line_names(doc):
+            ingredient_names.setdefault(
+                recipe_id,
+                set(),
+            ).add(tuple(name))
+
+    # construct food term set based on recipe ingredients
+    food_terms = set().union(*ingredient_names.values())
+
+    return ingredient_names, food_terms
+
+
+def build_matching_resources_1(
+    persona_lemmas_df,
+    recipe_lemmas_df,
+    recipe_table,
+    nutrition_fields,
+):
+    persona_values, health_label_values, liked_food_names = build_persona_values(
+        persona_lemmas_df
+    )
+
+    titles = build_recipe_titles(recipe_lemmas_df)
+
+    ingredient_names, food_terms = build_ingredient_names(
+        recipe_table
+    )
+
+    return {
+        # persona_id: mentioned terms from different sources
+        "persona_values": persona_values,
+
+        # (persona_id, liked item core) -> the user's food as WordNet names it
+        "liked_food_names": liked_food_names,
+
+        # health related choices (e.g. diet)
+        "health_label_values": [
+            list(value)
+            for value in health_label_values
+        ],
+
+        # recipe_id -> recipe_title
+        "titles": titles,
+
+        # all the nutrients ["calorie", "fat", ...]
+        "nutrient_terms": nutrient_terms_from_data(
+            list(recipe_table.columns),
+            nutrition_fields,
+        ),
+
+        # recipe_id -> ingredients
+        "ingredient_names": ingredient_names,
+
+        # all the ingredients the recipe mentioned
+        "food_terms": food_terms,
+    }
+
+
+
 def explanation_words(row, resources):
     """Words of one explanation (a row of explanation_lemmas_df), in base form, title removed."""
     terms = base_forms(to_list(row["explanation_lemmas"]))
