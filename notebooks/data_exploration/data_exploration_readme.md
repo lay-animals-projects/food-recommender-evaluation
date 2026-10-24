@@ -1,4 +1,4 @@
-This document describes the persisted processed-data files and the shared matching helpers used by `data_exploration.ipynb`.
+This document describes the persisted processed-data files and the matching helpers used by `data_exploration.ipynb`.
 
 ## Persisted processed-data files
 
@@ -14,17 +14,15 @@ These files contain reusable processed text data. Parquet files store tables; th
 | `persona_lemmas.parquet`        | `persona_id`, `source_field`                           | `persona_text_lemmas`                              | Match explanation terms with persona goals, preferences, and restrictions.                                           |
 | `nutrition_fields.json`         | Not row-based; contains nutrition field names          | For example: `calories`, `protein`, `carbs`, `fat` | Supplies the nutrition field names used by the analysis code.                                                        |
 
-`recommendation_id` identifies one recommendation and its explanation. Use `recipe_id` to link recommendation data to recipe data, and `persona_id` to link it to persona data. `rank` records the recommendation's position for that persona.
+`recommendation_id` identifies one recommendation and its explanation (`user_xx_rank_xx`). Use `recipe_id` to link recommendation data to recipe data, and `persona_id` to link it to persona data. `rank` records the recommendation's position for that persona.
 
 Token files store tokenized text. Lemma files store lemmatized text.
 
 `text` and `tokens` have the same names in all three token files. `document_id` links each text item to its lemma-table row; `item_index` preserves its original position within a list field. `nutrition_fields.json` is a JSON list of field names collected from recommendation nutrition dictionaries.
 
-## Shared matching helpers
+## Helpers
 
-Source: [`data_exploration_helpers.py`](data_exploration_helpers.py)
-
-(used by 1.2d and Task 2)
+Source: `data_exploration_helpers.py`
 
 Tools for finding, in an explanation, things that exist in the data. They are built once from the persona and recipe data only, so explanations from every model are processed in exactly the same way.
 
