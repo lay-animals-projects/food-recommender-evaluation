@@ -719,7 +719,14 @@ def find_user_factors(terms, persona_id, resources):
     persona_values = resources["persona_values"].get(persona_id, [])
 
     for field, value in persona_values:
-        if not contains_sequence(terms, value):
+        # Liked items are also checked with WordNet, so a shortened item does not match a different food.
+        if field == "liked_ingredient":
+            user_food = resources["liked_food_names"].get((persona_id, tuple(value)))
+            found = mentions_liked_food(terms, value, user_food)
+        else:
+            found = contains_sequence(terms, value)
+
+        if not found:
             continue
 
         group = "preference" if field in TASTE_FIELDS else "health"
