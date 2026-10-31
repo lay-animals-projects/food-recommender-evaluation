@@ -172,11 +172,11 @@ XFoodRec_Project_Data/
 
 `notebooks/run_pipeline.ipynb` runs the whole pipeline for all three models and then the model comparison.
 
-1. In Colab, choose File > Open notebook > GitHub, enter `lay-animals-projects/food-recommender-evaluation`, select the branch `ty` and open `notebooks/run_pipeline.ipynb`.
+1. In Colab, choose File > Open notebook > GitHub, enter `lay-animals-projects/food-recommender-evaluation`, select the branch `main` and open `notebooks/run_pipeline.ipynb`.
 2. Choose Runtime > Run all, and allow access to Google Drive when asked.
 3. The notebook then:
    - checks that the six input files listed under Prepare Google Drive exist, and stops with a list of the missing ones otherwise;
-   - clones the branch `ty` of this repository into the Colab runtime;
+   - clones the branch `main` of this repository into the Colab runtime;
    - for each model in turn, runs Tasks 1, 2, 3 and 4 with `MODEL` set to that model. For the two new models, Task 2 stops before 2.5, because the manual labels exist only for GPT-4o-mini;
    - runs Task 6 over the three models;
    - prints a short check table.
@@ -198,7 +198,7 @@ Running the pipeline again overwrites the files that the notebooks save in `eval
 
 ### Run a single notebook by hand (optional)
 
-To go through one task step by step, open its notebook from GitHub in Colab (branch `ty`, as above) and run it from top to bottom.
+To go through one task step by step, open its notebook from GitHub in Colab (branch `main`, as above) and run it from top to bottom.
 
 1. Set the model in the `MODEL` line near the top of the notebook:
 
@@ -257,8 +257,8 @@ More about the Task 1 files is in `notebooks/data_exploration/data_exploration_r
 
 ### Changing the code
 
-- The Task 1 and Task 2 notebooks import the helper files in `notebooks/` (`preprocess_helpers.py`, `fact_verification.py`, `explanation_artifacts.py`) from a copy of this repository that they clone into the Colab runtime. They clone the branch `ty`, so a change to these files takes effect only after it has been pushed to `ty`.
-- The branch name `ty` is written in three places: the cell of Task 1 that installs spaCy and clones the repository (before section 1.1), the first code cell of 2.0 in Task 2, and the settings cell of `run_pipeline`. When the work is merged into another branch, change all three.
+- The Task 1 and Task 2 notebooks import the helper files in `notebooks/` (`preprocess_helpers.py`, `fact_verification.py`, `explanation_artifacts.py`) from a copy of this repository that they clone into the Colab runtime. They clone the branch `main`, so a change to these files takes effect only after it has been pushed to `main`.
+- The branch name `main` is written in three places: the cell of Task 1 that installs spaCy and clones the repository (before section 1.1), the first code cell of 2.0 in Task 2, and the settings cell of `run_pipeline`. To take the helpers from another branch, change all three, and then start a new Colab runtime (Runtime > Disconnect and delete runtime), because a copy of the old branch already cloned in the runtime cannot switch to the new one.
 - `run_pipeline` relies on two lines staying as they are: `MODEL = "gpt-4o-mini"` in Tasks 1 to 4, and the heading `## 2.5` in Task 2, where it cuts Task 2 for the new models.
 - To save a notebook to GitHub from Colab, see `collaboration_setup.md`.
 
