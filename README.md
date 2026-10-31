@@ -24,72 +24,274 @@ https://github.com/Amir-Mol/XFoodRec
 
 - [x] (1.1) Load and inspect `personas.json`, `recommendations.json`, and `recipes.parquet`
 - [x] (1.2) Extract all explanations and compute basic statistics:
-    - [x] Length (words/characters)
-    - [x] Distribution of explanation types (ingredient-, nutrition-, taste-focused)
-    - [x] Coverage of user preferences vs. health justification
+  - [x] Length (words/characters)
+  - [x] Distribution of explanation types (ingredient-, nutrition-, taste-focused)
+  - [x] Coverage of user preferences vs. health justification
 
 **2. Entity Extraction, Fact Verification & Hallucination Detection**
 
 - [x] Extract three types of claims from each explanation:
-    - [x]  Ingredient mentions (e.g., "garlic", "salmon"),
-    - [x]  Nutrient claims, qualitative or numeric (e.g., "high in protein", "15g protein"),
-    - [x]  Diet/health-label claims (e.g., "gluten-free", "diabetes-friendly", "low sodium")
+  - [x] Ingredient mentions (e.g., "garlic", "salmon"),
+  - [x] Nutrient claims, qualitative or numeric (e.g., "high in protein", "15g protein"),
+  - [x] Diet/health-label claims (e.g., "gluten-free", "diabetes-friendly", "low sodium")
 - [x] Compare and verify extracted claims with the actual data:
-    - [x] Ingredients → recipe's ingredient list
-    - [x] Nutrient claims → recipe's nutrition fields
-    - [x] Diet/health-label claims → both the recipe's ingredients and the persona's restrictions/allergies/conditions
+  - [x] Ingredients → recipe's ingredient list
+  - [x] Nutrient claims → recipe's nutrition fields
+  - [x] Diet/health-label claims → both the recipe's ingredients and the persona's restrictions/allergies/conditions
 - [x] Define hallucination types:
-    - [x] Ingredient: mentions an ingredient not in the recipe
-    - [x] Nutrition: claimed value significantly differs from actual data (numeric) or contradicts the documented threshold (qualitative)
-    - [x] Diet/allergen: claims a diet/health label or compatibility with a persona restriction that the recipe's ingredients contradict (or vice versa)
+  - [x] Ingredient: mentions an ingredient not in the recipe
+  - [x] Nutrition: claimed value significantly differs from actual data (numeric) or contradicts the documented threshold (qualitative)
+  - [x] Diet/allergen: claims a diet/health label or compatibility with a persona restriction that the recipe's ingredients contradict (or vice versa)
 - [x] Validate the verifier itself: Manually label a sample of explanations (100) as hallucinated/not.
 - [x] Report:
-    - [x] Hallucination rate (% of explanations with ≥1 false claim), broken down by type
-    - [x] Patterns (do longer explanations or certain persona types hallucinate more?)
+  - [x] Hallucination rate (% of explanations with ≥1 false claim), broken down by type
+  - [x] Patterns (do longer explanations or certain persona types hallucinate more?)
 
 **3. Transparency & Reasoning Analysis**
 
 The XFoodRec prompt requires explanations to explicitly cite the user factors (goal, preference) that drove the recommendation
 
 - [x] Classify each explanation by transparency level:
-    - [x] High: explicitly mentions ≥1 user factor, e.g., "matches your muscle gain goal"
-    - [x] Medium: implies user relevance but not explicit
-    - [x] Low: generic, no user context
+  - [x] High: explicitly mentions ≥1 user factor, e.g., "matches your muscle gain goal"
+  - [x] Medium: implies user relevance but not explicit
+  - [x] Low: generic, no user context
 - [x] Report the distribution of levels and compare across persona types.
-    - [x] note: You can classify with rule/lexicon matching (a list of factor keywords + user-directed cue words such as "your"/"goal"/"needs", excluding words that only appear in the recipe title)
+  - [x] note: You can classify with rule/lexicon matching (a list of factor keywords + user-directed cue words such as "your"/"goal"/"needs", excluding words that only appear in the recipe title)
 
 **4. Bias & Fairness Analysis**
 
 - [x] Investigate whether explanation quality varies by persona characteristics:
-    - [x] Dietary goal
-    - [x] Health status
-    - [x] Dietary restriction
-    - [x] Demographics (age, gender)
+  - [x] Dietary goal
+  - [x] Health status
+  - [x] Dietary restriction
+  - [x] Demographics (age, gender)
 - [x] Metrics:
-    - [x] Average explanation length
-    - [x] Transparency score
-    - [x] Hallucination rate
+  - [x] Average explanation length
+  - [x] Transparency score
+  - [x] Hallucination rate
 - [x] Apply statistical tests (t-tests, ANOVA) on persona-level values with multiple-testing correction, and frame results as exploratory.
-    - [x] note: The explanations are nested in 40 personas, so it is good to aggregate metrics per persona before testing.
+  - [x] note: The explanations are nested in 40 personas, so it is good to aggregate metrics per persona before testing.
 
 **5. Multi-Model Explanation Generation**
 
 - [x] Use at least 2 different LLMs (you can use Lehmus AI platform or other services available for University of Oulu students) to generate explanations for the exact same persona + recipe + rank triples already in `recommendations.json`
-    - [x] note: choose LLMs that differ meaningfully in size/architecture for a more informative comparison.
+  - [x] note: choose LLMs that differ meaningfully in size/architecture for a more informative comparison.
 - [x] Run each model's explanations through the Task 1-4 pipeline for comparison against the original GPT-4o-mini explanations.
 
 **6. Evaluation & Comparison**
 
-- [ ] Compare original (GPT-4o) explanations vs. new models output
-- [ ] Metrics:
-    - [ ] Factual accuracy (% of verified claims)
-    - [ ] Transparency score
-    - [ ] Hallucination rate
-    - [ ] Average length
-- [ ] Report a model-comparison table and discuss which model(s) produced better explanations and why.
+- [x] Compare original (GPT-4o) explanations vs. new models output
+- [x] Metrics:
+  - [x] Factual accuracy (% of verified claims)
+  - [x] Transparency score
+  - [x] Hallucination rate
+  - [x] Average length
+- [x] Report a model-comparison table and discuss which model(s) produced better explanations and why.
 
 **Deliverables**
 
 - [x] Code/notebook implementing all specifications above: see `notebook/`
 - [x] The raw explanation outputs collected from each additional model: see `explanation_generation_llm/`
 - [x] A written report covering all analyses, with tables/plots, the model comparison table, the model comparison table, and the hallucination and bias findings.
+
+## How to Use the Notebooks
+
+This part explains how to run the analysis notebooks, in which order, and where every input and output file is. All notebooks run in Google Colab and read and write their data in a shared Google Drive folder. A standard CPU runtime is enough.
+
+### Repository layout
+
+| Path                                                                                                      | Contents                                                                                                                        |
+| --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `data/`                                                                                                   | The original XFoodRec data: `personas.json`, `recommendations.json` (GPT-4o-mini explanations) and `recipes.parquet`            |
+| `explanation_generation_llm/`                                                                             | Task 5: the script that generated explanations with other LLMs, and its outputs (`GPT-OSS-120B-output/`, `Qwen3.8-27B-output/`) |
+| `notebooks/data_exploration/data_exploration.ipynb`                                                       | Task 1: data exploration and preprocessing                                                                                      |
+| `notebooks/extraction_verification/extraction_verification.ipynb`                                         | Task 2: claim extraction, fact verification, hallucination detection and validation of the verifier                             |
+| `notebooks/transparency_reasoning.ipynb`                                                                  | Task 3: transparency levels                                                                                                     |
+| `notebooks/bias_n_fairness.ipynb`                                                                         | Task 4: bias and fairness tests                                                                                                 |
+| `notebooks/evaluation_comparison.ipynb`                                                                   | Task 6: model comparison                                                                                                        |
+| `notebooks/run_pipeline.ipynb`                                                                            | Runs Tasks 1 to 4 for every model, then Task 6                                                                                  |
+| `notebooks/preprocess_helpers.py`, `notebooks/fact_verification.py`, `notebooks/explanation_artifacts.py` | Helper functions imported by the Task 1 and Task 2 notebooks                                                                    |
+| `notebooks/data_exploration/data_exploration_readme.md`                                                   | Description of the Task 1 output files and of the matching helpers                                                              |
+| `collaboration_setup.md`                                                                                  | Git and Google Drive instructions for the team                                                                                  |
+
+Task 5 has no notebook. Its results are the explanation files of the new models, which the other notebooks read like the original file.
+
+### How the notebooks depend on each other
+
+The notebooks form a chain: each one saves files that the next one reads. For one model they run in this order:
+
+| Order | Notebook                                                                        | Reads                                                                                                                             | Saves                                                                                                                |
+| ----- | ------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| 1     | Task 1 `data_exploration`                                                       | `personas.json`, `recipes.parquet` and the model's `recommendations.json`                                                         | Lemma and token tables, `nutrition_fields.json`                                                                      |
+| 2     | Task 2 `extraction_verification`                                                | The raw files, the Task 1 lemma tables and `nutrition_fields.json`                                                                | `explanation_docs.spacy`, `user_factor_mentions.parquet`, `verified_claims.parquet`, `persona_compatibility.parquet` |
+| 3     | Task 3 `transparency_reasoning`                                                 | `personas.json`, `explanation_lemmas.parquet`, `explanation_docs.spacy`, `user_factor_mentions.parquet`                           | `transparency_levels.parquet`                                                                                        |
+| 4     | Task 4 `bias_n_fairness`                                                        | `personas.json`, `explanation_lemmas.parquet`, `explanation_docs.spacy`, `verified_claims.parquet`, `transparency_levels.parquet` | Five result tables (CSV)                                                                                             |
+| 5     | Task 6 `evaluation_comparison`, after every model has been through Tasks 1 to 4 | For every model: `explanation_lemmas.parquet`, `explanation_docs.spacy`, `verified_claims.parquet`, `transparency_levels.parquet` | Four comparison tables (CSV)                                                                                         |
+
+Only Tasks 1 and 2 run spaCy: Task 1 reduces the texts to base forms and Task 2 parses the explanations. Tasks 3, 4 and 6 read what these two saved instead of parsing again, so the explanations of every model are processed once and in the same way.
+
+The notebooks themselves call Tasks 1 and 2 "Step 1" and "Step 2".
+
+The files of each model are kept apart in `evaluation_runs/<model>/`, where `<model>` is `gpt-4o-mini`, `gpt-oss-120b` or `qwen3.8-27b`.
+
+### Prepare Google Drive
+
+1. The data folder `XFoodRec_Project_Data` is shared from Junxuan's Google Drive. Add a shortcut to it in your own `MyDrive/` (see `collaboration_setup.md`), so that every notebook finds it at `/content/drive/MyDrive/XFoodRec_Project_Data`. You need edit access to the folder, because the notebooks write into it.
+2. Check that the folder looks like this:
+
+```
+XFoodRec_Project_Data/
+    raw/
+        personas.json
+        recipes.parquet
+        recommendations.json                  original GPT-4o-mini explanations
+    llm_results/
+        GPT-OSS-120B-output/recommendations.json
+        Qwen3.8-27B-output/recommendations.json
+    evaluation_runs/
+        gpt-4o-mini/
+            processed/                        files saved by Tasks 1 to 3
+                manual_verifier_sample_100_annotated.xlsx   manual labels, put here by hand
+            results/                          Task 4 tables and executed notebooks
+        gpt-oss-120b/
+            processed/
+            results/
+        qwen3.8-27b/
+            processed/
+            results/
+        comparison/                           Task 6 tables and executed notebook
+    processed/                                older GPT-4o-mini outputs, no longer written
+```
+
+3. Where the inputs come from:
+   - `raw/` holds the same three files as `data/` in this repository.
+   - `llm_results/` holds the output folders from `explanation_generation_llm/`. The folder names must be exactly `GPT-OSS-120B-output` and `Qwen3.8-27B-output`.
+   - `manual_verifier_sample_100_annotated.xlsx` is the manually labelled sample used in 2.5 (validation of the verifier). It is the only file in `evaluation_runs/` that is put there by hand; every other file there is written by the notebooks, and the folders are created when needed.
+
+### Run everything at once (recommended)
+
+`notebooks/run_pipeline.ipynb` runs the whole pipeline for all three models and then the model comparison.
+
+1. In Colab, choose File > Open notebook > GitHub, enter `lay-animals-projects/food-recommender-evaluation`, select the branch `ty` and open `notebooks/run_pipeline.ipynb`.
+2. Choose Runtime > Run all, and allow access to Google Drive when asked.
+3. The notebook then:
+   - checks that the six input files listed under Prepare Google Drive exist, and stops with a list of the missing ones otherwise;
+   - clones the branch `ty` of this repository into the Colab runtime;
+   - for each model in turn, runs Tasks 1, 2, 3 and 4 with `MODEL` set to that model. For the two new models, Task 2 stops before 2.5, because the manual labels exist only for GPT-4o-mini;
+   - runs Task 6 over the three models;
+   - prints a short check table.
+4. Every executed notebook is saved with all its outputs and plots: `evaluation_runs/<model>/results/1_data_exploration.ipynb` to `4_bias_n_fairness.ipynb`, and `evaluation_runs/comparison/evaluation_comparison.ipynb`. Open them from Drive to read the results without running anything.
+
+The notebooks run exactly as they are in the repository. Only two things change in the copy that runs: `MODEL` is set to the model of the run, and the Drive mount cell is skipped, because `run_pipeline` has mounted the Drive already.
+
+If a notebook fails, the run stops and the failed notebook is saved with its error in the same place, so the failing cell can be found there.
+
+With the current data, the check table at the end shows:
+
+| model        | explanations | claims | hallucinated explanations | High / Medium / Low |
+| ------------ | ------------ | ------ | ------------------------- | ------------------- |
+| gpt-4o-mini  | 536          | 1551   | 145                       | 320 / 202 / 14      |
+| gpt-oss-120b | 536          | 3609   | 245                       | 524 / 12 / 0        |
+| qwen3.8-27b  | 536          | 2825   | 179                       | 524 / 12 / 0        |
+
+Running the pipeline again overwrites the files that the notebooks save in `evaluation_runs/`. The manual labels are only read, never changed.
+
+### Run a single notebook by hand (optional)
+
+To go through one task step by step, open its notebook from GitHub in Colab (branch `ty`, as above) and run it from top to bottom.
+
+1. Set the model in the `MODEL` line near the top of the notebook:
+
+| Notebook                         | Cell with the `MODEL` line |
+| -------------------------------- | -------------------------- |
+| Task 1 `data_exploration`        | 1.1 a. Load Data           |
+| Task 2 `extraction_verification` | 0. Setup and data loading  |
+| Task 3 `transparency_reasoning`  | 0.3 Setup and data loading |
+| Task 4 `bias_n_fairness`         | 0.3 Setup and data loading |
+
+2. For one model, run Task 1, Task 2, Task 3 and Task 4 in this order. A single notebook can be run again on its own, as long as the files of the notebooks before it are already in `evaluation_runs/<model>/processed/`.
+3. For `gpt-oss-120b` and `qwen3.8-27b`, Task 2 stops with an `AssertionError` in the first code cell of 2.5. This is expected: everything up to 2.4 has been saved by then, and 2.5 needs the manual labels, which exist only for GPT-4o-mini.
+4. Task 6 has no `MODEL` line. Run it after the models have been through Tasks 1 to 4; a model whose files are missing is skipped with a message.
+5. Set `MODEL` back to `"gpt-4o-mini"` before saving a notebook to GitHub. `run_pipeline` looks for the exact line `MODEL = "gpt-4o-mini"` in every notebook and stops if it is not there.
+
+### Output files
+
+The paths below are inside `XFoodRec_Project_Data/evaluation_runs/`.
+
+`<model>/processed/`:
+
+| File                                                                               | Saved by                         | Used by             | Contents                                                                                                                                 |
+| ---------------------------------------------------------------------------------- | -------------------------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `explanation_lemmas.parquet`, `recipe_lemmas.parquet`, `persona_lemmas.parquet`    | Task 1 (1.2 b-c-1)               | Tasks 2, 3, 4 and 6 | Texts in base forms; `explanation_lemmas.parquet` also holds the explanation ids (`user_xx_rank_xx`) with their persona, recipe and rank |
+| `recommendation_tokens.parquet`, `recipe_tokens.parquet`, `persona_tokens.parquet` | Task 1 (1.2 b-c-1)               |                     | Tokenized texts                                                                                                                          |
+| `nutrition_fields.json`                                                            | Task 1 (1.2 b-c-1)               | Task 2              | Names of the nutrition fields                                                                                                            |
+| `explanation_docs.spacy`                                                           | Task 2 (2.1.5)                   | Tasks 3, 4 and 6    | spaCy parses of all explanations, read back with `spacy.blank("en")`                                                                     |
+| `user_factor_mentions.parquet`                                                     | Task 2 (2.1.5)                   | Task 3              | Where an explanation names the persona's own values                                                                                      |
+| `verified_claims.parquet`                                                          | Task 2 (2.2.5)                   | Tasks 4 and 6       | One row per claim, with its verdict: supported, contradicted or unverified                                                               |
+| `persona_compatibility.parquet`                                                    | Task 2 (2.2.5)                   |                     | Each recipe checked against the persona's restrictions and allergies                                                                     |
+| `manual_verifier_sample_100.xlsx`                                                  | Task 2 (2.5.1), GPT-4o-mini only |                     | Blank annotation template, written again on every run                                                                                    |
+| `manual_verifier_sample_100_annotated.xlsx`                                        | By hand, GPT-4o-mini only        | Task 2 (2.5.2)      | Manual labels; the first column `manual_hallucinated` is 1 for a hallucinated explanation                                                |
+| `transparency_levels.parquet`                                                      | Task 3 (3.5)                     | Tasks 4 and 6       | Transparency level and score of every explanation                                                                                        |
+
+More about the Task 1 files is in `notebooks/data_exploration/data_exploration_readme.md`.
+
+`<model>/results/`:
+
+| File                                                    | Contents                                                                                                                         |
+| ------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `explanation_metrics.csv`                               | Text, word count, transparency score, number of claims per verdict and hallucination flag of every explanation                   |
+| `persona_metrics.csv`                                   | Average length, transparency score and hallucination rate per persona, with the persona characteristics                          |
+| `test_results.csv`                                      | All planned t-tests and ANOVAs with p-values adjusted by Benjamini-Hochberg; the `note` column says why a test was not performed |
+| `binary_summary.csv`, `anova_summary.csv`               | The t-test and ANOVA results in a shorter form                                                                                   |
+| `1_data_exploration.ipynb` to `4_bias_n_fairness.ipynb` | Executed notebooks, only when run through `run_pipeline`                                                                         |
+
+`comparison/`:
+
+| File                           | Contents                                                                                                    |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------- |
+| `model_comparison.csv`         | The four Task 6 metrics per model, plus claims per explanation and the share of unverified claims           |
+| `persona_metrics_by_model.csv` | The four metrics per persona and model                                                                      |
+| `paired_tests.csv`             | Friedman and Wilcoxon signed-rank tests on the persona values, with p-values adjusted by Benjamini-Hochberg |
+| `claim_types_by_model.csv`     | Claims, factual accuracy and share of explanations with a contradicted claim, per claim type and model      |
+| `evaluation_comparison.ipynb`  | Executed Task 6 notebook, only when run through `run_pipeline`                                              |
+
+### Changing the code
+
+- The Task 1 and Task 2 notebooks import the helper files in `notebooks/` (`preprocess_helpers.py`, `fact_verification.py`, `explanation_artifacts.py`) from a copy of this repository that they clone into the Colab runtime. They clone the branch `ty`, so a change to these files takes effect only after it has been pushed to `ty`.
+- The branch name `ty` is written in three places: the cell of Task 1 that installs spaCy and clones the repository (before section 1.1), the first code cell of 2.0 in Task 2, and the settings cell of `run_pipeline`. When the work is merged into another branch, change all three.
+- `run_pipeline` relies on two lines staying as they are: `MODEL = "gpt-4o-mini"` in Tasks 1 to 4, and the heading `## 2.5` in Task 2, where it cuts Task 2 for the new models.
+- To save a notebook to GitHub from Colab, see `collaboration_setup.md`.
+
+### Adding another model
+
+1. Generate its explanations (see the next section) and put them in `XFoodRec_Project_Data/llm_results/<Name>-output/recommendations.json`.
+2. Choose a folder name for its results, for example `llama-3-70b`, and add the model in these places:
+   - Task 1, cell 1.1 a: the `recommendation_path` dictionary;
+   - Task 2, cell 0. Setup and data loading: the `recommendation_path` dictionary;
+   - `run_pipeline`: the `MODELS` list in the settings cell and the `inputs` dictionary in the next cell;
+   - Task 6, cell 0.3: the `MODELS` dictionary (folder name and the name shown in tables and plots) and `MODEL_COLORS`.
+3. Run `run_pipeline` again.
+
+### Generating explanations with other LLMs (Task 5)
+
+`explanation_generation_llm/generate_explanations.py` asks a model on the Lehmus AI platform of the University of Oulu for a new explanation of every recommendation in `explanation_generation_llm/data/recommendations.json` (a copy of the original data). Each request contains the full persona, the full recipe and the rank; the system prompt is at the top of the script.
+
+1. In `explanation_generation_llm/`, create a file named `.env`:
+
+```
+LEHMUS_BASE_URL=...
+LEHMUS_API_KEY=...
+LEHMUS_MODEL_ID=...
+```
+
+   Never commit this file: it holds your API key, and this repository is public.
+
+2. From inside `explanation_generation_llm/`, run:
+
+```
+pip install -r requirements.txt
+python generate_explanations.py
+```
+
+3. The script writes `output/recommendations.json`, with the same structure as the original file and only the explanations replaced. An answer that is not 3 or 4 sentences long is requested again, up to 100 times.
+4. Rename `output/` to `<Name>-output/` and copy it into `XFoodRec_Project_Data/llm_results/` on Google Drive.
