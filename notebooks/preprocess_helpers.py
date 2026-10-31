@@ -171,6 +171,15 @@ def normalize_text(value):
     return re.sub(r"\s+", " ", value).strip()
 
 
+def plain_hyphens(text):
+    """Write Unicode hyphens as the plain "-" that spaCy splits on.
+
+    NFKC turns the non-breaking hyphen U+2011 (used by GPT-OSS, e.g. in
+    "low-sodium") into the hyphen U+2010, which is then written as "-".
+    """
+    return unicodedata.normalize("NFKC", text).replace("\u2010", "-")
+
+
 def add_text_items(records, entity_id, source_field, value, lemma_column, keep_numbers, persona_id=None, recipe_id=None, rank=None, recommendation_id=None, remove_ingredient_quantities=False):
     """Add one row per text item, such as one ingredient or tag."""
     if isinstance(value, (list, tuple, np.ndarray)):
